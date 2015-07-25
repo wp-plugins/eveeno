@@ -2,8 +2,8 @@
 /*
   Plugin Name: Eveeno
   Plugin URI: https://github.com/Cassandre
-  Version: 1.0
-  Description: Erstellt Shortcode, der Anmeldeformulare von Eveeno in die eigene Seite integriert
+  Version: 1.2
+  Description: WordPress plugin for embedding eveeno registration forms and upcoming events lists. 
   Author: Barbara Bothe
   Author URI: http://barbara-bothe.de
   Network:
@@ -183,7 +183,7 @@ class Eveeno {
                 $output .=  "<iframe src=\"http://eveeno.com/de/event-cal/$userid?style=table&format=embedded\""
                             . "width=\"$width\"" 
                             . "height=\"$height\"" 
-                            . "name=\"" . __('Unsere Veranstaltungen', Eveeno::textdomain) . "\">"; 
+                            . "name=\"" . __('Kommende Veranstaltungen', Eveeno::textdomain) . "\">"; 
                 $output .= "<p>" . __('Ihr Browser kann leider keine eingebetteten Frames anzeigen. Sie können die eingebettete Seite über den folgenden Link aufrufen: ', Eveeno::textdomain)
                             . "<a href=\"https://eveeno.com/$userid\">" . __('Anmeldung', Eveeno::textdomain) . "</a>" . "</p>";
                 $output .= "</iframe>";
@@ -191,7 +191,15 @@ class Eveeno {
                 $output .=  "<iframe src=\"http://eveeno.com/de/event-cal/$userid?style=grid&format=embedded\""
                             . "width=\"$width\"" 
                             . "height=\"$height\"" 
-                            . "name=\"" . __('Unsere Veranstaltungen', Eveeno::textdomain) . "\">"; 
+                            . "name=\"" . __('Kommende Veranstaltungen', Eveeno::textdomain) . "\">"; 
+                $output .= "<p>" . __('Ihr Browser kann leider keine eingebetteten Frames anzeigen. Sie können die eingebettete Seite über den folgenden Link aufrufen: ', Eveeno::textdomain)
+                            . "<a href=\"https://eveeno.com/$userid\">" . __('Anmeldung', Eveeno::textdomain) . "</a>" . "</p>";
+                $output .= "</iframe>";
+            } elseif ($show == 'list' && $userid !='') {
+                $output .=  "<iframe src=\"http://eveeno.com/de/event-cal/$userid?style=list&format=embedded\""
+                            . "width=\"$width\"" 
+                            . "height=\"$height\"" 
+                            . "name=\"" . __('Kommende Veranstaltungen', Eveeno::textdomain) . "\">"; 
                 $output .= "<p>" . __('Ihr Browser kann leider keine eingebetteten Frames anzeigen. Sie können die eingebettete Seite über den folgenden Link aufrufen: ', Eveeno::textdomain)
                             . "<a href=\"https://eveeno.com/$userid\">" . __('Anmeldung', Eveeno::textdomain) . "</a>" . "</p>";
                 $output .= "</iframe>";
